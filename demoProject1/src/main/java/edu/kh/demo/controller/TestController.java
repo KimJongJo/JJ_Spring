@@ -56,7 +56,7 @@ public class TestController {
 	
 	
 	@RequestMapping("test") // //test 요청 시 처리할 메서드 매핑(GET/POST 가리지 않고)
-	public String testMethod() {
+	public String testMethod() { 
 		System.out.println("/test 요청받음");
 		
 		/* Controller 메서드의 반환형이 String 인 이유
