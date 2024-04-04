@@ -17,7 +17,7 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 /* @Configuration
- * - 설정용 클래스임 명시
+ * - 설정용 클래스임을 명시
  *  + 객체로 생성해서 내부 코드를 서버 실행 시 모두 수행
  * 
  * 
@@ -47,7 +47,7 @@ import com.zaxxer.hikari.HikariDataSource;
  * - 등록된 Bean 중에서
  *   타입이 일치하거나, 상속관계에 있는 Bean을
  *   지정된 필드에 주입
- *   == 의조성 주입(DI, Dependency Injection, IOC 관련 기술)
+ *   == 의존성 주입(DI, Dependency Injection, IOC 관련 기술)
  * */
 
 //classpath == src/main/resources
