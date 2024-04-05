@@ -5,8 +5,6 @@ goToList.addEventListener("click", () => {
     location.href = "/"; // 메인 페이지 요청
 });
 
-
-
 // 완료 여부 변경 버튼 동작
 const completeBtn = document.querySelector(".complete-btn");
 
@@ -31,11 +29,6 @@ completeBtn.addEventListener("click", (e) => {
         = `/todo/changeComplete?todoNo=${todoNo}&complete=${complete}`;
 });
 
-
-
-
-//////////////////////////////////////////
-
 // 수정 버튼 클릭 시 
 const updateBtn = document.querySelector("#updateBtn");
 
@@ -47,9 +40,6 @@ updateBtn.addEventListener("click", e => {
     location.href = `/todo/update?todoNo=${todoNo}`;
 
 });
-
-
-//////////////////////////////////////////
 
 // 삭제 버튼 클릭 시 
 const deleteBtn = document.querySelector("#deleteBtn");
