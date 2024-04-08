@@ -4,30 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
     
-    <div>
-        <div>Diary</div>
-        <div>
-            <span>제목</span> <br>
-            <input type="text"> <br>
-            
-            <span>날짜</span> <br>
-            <input type="number" placeholder="ex)   20001018"> <br>
-
-            <span>날씨</span> <br>
-            <input type="text"> <br>
-
-            <span>오늘 나의 기분</span> <br>
-            <input type="text"> <br>
+    <div id="small-box">
+        <button type="button">일기쓰기</button>
 
 
-            <span>내용</span> <br>
-            <textarea name="" id="" cols="30" rows="10" style="resize: none;"></textarea>
-
-            
-            
+        <div id="input-box">
+            제목 <input type="text" id="diaryTitle"> <br>
+            <input type="text" id="feeling" placeholder="오늘의 기분"> 
+            <input type="text" id="weather" placeholder="오늘의 날씨"> <br><br>
+            <textarea id="diaryContent" cols="30" rows="10" style="resize: none;"></textarea>
         </div>
     </div>
     
