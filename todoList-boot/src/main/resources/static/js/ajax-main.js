@@ -416,7 +416,7 @@ updateCancle.addEventListener("click", () => {
 
 
 ////////////////////////////////////////////////////////
-
+// 수정
 updateBtn.addEventListener("click", e => {
 
 
