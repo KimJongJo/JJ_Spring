@@ -141,13 +141,5 @@ public class TodoServiceImpl implements TodoService{
 		return mapper.selectAll();
 	}
 
-
-
-	// 완료 여부 수정
-	@Override
-	public int todoChangeComplete(Todo todo) {
-		
-		return mapper.changeComplete(todo);
-	}
 	
 }
