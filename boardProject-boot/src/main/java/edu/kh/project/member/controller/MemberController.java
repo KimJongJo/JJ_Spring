@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -83,21 +84,24 @@ public class MemberController {
 	}
 	
 	
-	
+	// 회원가입 창으로 안내
 	@GetMapping("signup")
 	public String signup() {
 		
 		return "common/signup";
 	}
 	
+	// 회원가입 기능
 	@PostMapping("signup")
 	public String signup(Member member,
 				RedirectAttributes ra
 			) {
 		
-		int result = service.signup(member);
+		log.debug("컨트롤러에서 " + member);
+
+		boolean result = service.signup(member);
 		
-		if(result > 0 ) {
+		if(result) {
 			ra.addFlashAttribute("message", "회원가입 성공!");
 		}else {
 			ra.addFlashAttribute("message", "회원가입 실패..");

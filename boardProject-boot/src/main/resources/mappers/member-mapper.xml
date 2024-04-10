@@ -20,7 +20,7 @@
 		AND MEMBER_DEL_FL = 'N'
    </select>
    
-   <insert id="signup">
+   <insert id="signup" parameterType="Member">
    		INSERT INTO "MEMBER"
 		VALUES(SEQ_MEMBER_NO.NEXTVAL, 
 					 #{memberEmail},
@@ -32,7 +32,7 @@
 					 DEFAULT,
 					 DEFAULT,
 					 DEFAULT
-		);
+		)
    </insert>
    
 	

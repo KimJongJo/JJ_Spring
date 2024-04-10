@@ -14,6 +14,6 @@ public interface MemberService {
 	 * @param member
 	 * @return result
 	 */
-	int signup(Member member);
+	boolean signup(Member member);
 
 }

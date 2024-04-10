@@ -66,16 +66,16 @@ public class MemberServiceImpl implements MemberService{
 
 	// 회원가입
 	@Override
-	public int signup(Member member) {
-		
+	public boolean signup(Member member) {
+
 		String bc = bcrypt.encode(member.getMemberPw());
 		member.setMemberPw(bc);
-		
+
 		int result = mapper.signup(member);
 		
+		if(result > 0) return true;
+		else return false;
 		
-		
-		return result;
 	}
 	
 	
