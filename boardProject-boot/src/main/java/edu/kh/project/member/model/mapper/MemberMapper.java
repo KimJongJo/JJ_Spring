@@ -13,4 +13,10 @@ public interface MemberMapper {
 	 */
 	Member login(String memberEmail);
 
+	/** 회원가입 암호화
+	 * @param member
+	 * @return result
+	 */
+	int signup(Member member);
+
 }

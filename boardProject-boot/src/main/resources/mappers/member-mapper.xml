@@ -20,6 +20,21 @@
 		AND MEMBER_DEL_FL = 'N'
    </select>
    
+   <insert id="signup">
+   		INSERT INTO "MEMBER"
+		VALUES(SEQ_MEMBER_NO.NEXTVAL, 
+					 #{memberEmail},
+					 #{memberPw},
+					 #{memberNickname},
+					 #{memberTel},
+					 NULL,
+					 NULL,
+					 DEFAULT,
+					 DEFAULT,
+					 DEFAULT
+		);
+   </insert>
+   
 	
   
 </mapper>

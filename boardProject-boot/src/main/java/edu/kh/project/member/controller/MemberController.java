@@ -11,6 +11,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import edu.kh.project.member.model.dto.Member;
 import edu.kh.project.member.model.service.MemberService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 /*
  * @SessionAttributes( {"key", "key", "key", ...} )
@@ -78,5 +81,36 @@ public class MemberController {
 		
 		return "redirect:/"; // 메인페이지 재요청
 	}
+	
+	
+	
+	@GetMapping("signup")
+	public String signup() {
+		
+		return "common/signup";
+	}
+	
+	@PostMapping("signup")
+	public String signup(Member member,
+				RedirectAttributes ra
+			) {
+		
+		int result = service.signup(member);
+		
+		if(result > 0 ) {
+			ra.addFlashAttribute("message", "회원가입 성공!");
+		}else {
+			ra.addFlashAttribute("message", "회원가입 실패..");
+		}
+		
+		
+		
+		
+		return "redirect:/"; // 메인페이지 재요청
+	}
+
+	
+	
+	
 	
 }

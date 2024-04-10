@@ -10,4 +10,10 @@ public interface MemberService {
 	 */
 	Member login(Member inputMember);
 
+	/** 회원가입 서비스
+	 * @param member
+	 * @return result
+	 */
+	int signup(Member member);
+
 }

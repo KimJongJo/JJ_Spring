@@ -33,8 +33,8 @@ public class MemberServiceImpl implements MemberService{
 		// 테스트
 		
 		// bcrypt.encode(문자열) : 문자열을 암호화하여 반환
-		//String bcryptPassword = bcrypt.encode(inputMember.getMemberPw());
-		//log.debug( "bcryptPassword : " + bcryptPassword);
+//		String bcryptPassword = bcrypt.encode(inputMember.getMemberPw());
+//		log.debug( "bcryptPassword : " + bcryptPassword);
 		
 		//boolean result = bcrypt.matches(inputMember.getMemberPw(), bcryptPassword);
 		//log.debug("result : " + result);
@@ -62,6 +62,20 @@ public class MemberServiceImpl implements MemberService{
 		
 		
 		return loginMember;
+	}
+
+	// 회원가입
+	@Override
+	public int signup(Member member) {
+		
+		String bc = bcrypt.encode(member.getMemberPw());
+		member.setMemberPw(bc);
+		
+		int result = mapper.signup(member);
+		
+		
+		
+		return result;
 	}
 	
 	
