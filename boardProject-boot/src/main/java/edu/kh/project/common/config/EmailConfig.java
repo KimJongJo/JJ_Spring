@@ -26,7 +26,7 @@ public class EmailConfig {
 		JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
 		
 		Properties prop = new Properties();
-		prop.setProperty("mail.transport.protocol", "smtp"); // 전송 프로토콜 설
+		prop.setProperty("mail.transport.protocol", "smtp"); // 전송 프로토콜 설정
 		prop.setProperty("mail.smtp.auth", "true"); // 서버인증 사용 여부
 		prop.setProperty("mail.smtp.starttls.enable", "true"); // 안전한 연결을 할지말지 활성 여부
 		prop.setProperty("mail.debug", "true"); // 디버그 모드 사용 여부

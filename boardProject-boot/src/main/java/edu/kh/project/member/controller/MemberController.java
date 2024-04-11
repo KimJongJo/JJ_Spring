@@ -98,6 +98,7 @@ public class MemberController {
 			
 			// ex) "/" : IP또는 도메인 또는 localhost
 			//			 뒤에 "/" --> 메인 페이지 + 그 하위 주소 모두
+			// "/" :  최상위 경로 의미 경로에 관계 없이 쿠키를 받고자 한다.
 			cookie.setPath("/");
 			
 			// 만료 기간 지정
