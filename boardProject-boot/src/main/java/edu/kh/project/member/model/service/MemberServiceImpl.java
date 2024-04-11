@@ -64,20 +64,14 @@ public class MemberServiceImpl implements MemberService{
 		return loginMember;
 	}
 
-	// 회원가입
-	@Override
-	public boolean signup(Member member) {
-
-		String bc = bcrypt.encode(member.getMemberPw());
-		member.setMemberPw(bc);
-
-		int result = mapper.signup(member);
-		
-		if(result > 0) return true;
-		else return false;
-		
-	}
 	
+	//이메일 중복검사
+	@Override
+	public int checkEmail(String memberEmail) {
+		
+		return mapper.checkEmail(memberEmail);
+	}
+
 	
 }
 

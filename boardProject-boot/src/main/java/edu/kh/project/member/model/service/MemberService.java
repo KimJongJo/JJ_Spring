@@ -10,10 +10,11 @@ public interface MemberService {
 	 */
 	Member login(Member inputMember);
 
-	/** 회원가입 서비스
-	 * @param member
-	 * @return result
+	/** 이메일 중복검사
+	 * @param memberEmail
+	 * @return count
 	 */
-	boolean signup(Member member);
-
+	int checkEmail(String memberEmail);
+	
 }
+
