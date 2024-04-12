@@ -13,16 +13,24 @@ public interface MemberMapper {
 	 */
 	Member login(String memberEmail);
 
-	/** 회원가입 암호화
-	 * @param member
-	 * @return result
-	 */
-	int signup(Member member);
 
 	/** 이메일 중복검사
 	 * @param memberEmail
 	 * @return count
 	 */
 	int checkEmail(String memberEmail);
+
+	/** 닉네임 중복검사
+	 * @param inputNickname
+	 * @return result
+	 */
+	int checkNickname(String inputNickname);
+
+
+	/** 회원 가입 SQL 실행
+	 * @param inputMember
+	 * @return result
+	 */
+	int signup(Member inputMember);
 
 }

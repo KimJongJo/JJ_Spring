@@ -15,6 +15,19 @@ public interface MemberService {
 	 * @return count
 	 */
 	int checkEmail(String memberEmail);
+
+	/** 닉네임 중복검사
+	 * @param inputNickname
+	 * @return result
+	 */
+	int checkNickname(String inputNickname);
+
+	/** 회원 가입 서비스
+	 * @param inputMember
+	 * @param memberAddress
+	 * @return result
+	 */
+	int signup(Member inputMember, String[] memberAddress);
 	
 }
 
