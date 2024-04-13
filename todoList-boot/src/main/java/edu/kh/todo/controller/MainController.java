@@ -45,4 +45,10 @@ public class MainController {
 		return "common/main";
 	}
 	
+	@RequestMapping("/test") 
+	public String kakaoApi() {
+		
+		return "common/test";
+	}
+	
 }

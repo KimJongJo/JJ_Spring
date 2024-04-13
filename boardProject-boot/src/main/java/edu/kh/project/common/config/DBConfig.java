@@ -27,6 +27,8 @@ import com.zaxxer.hikari.HikariDataSource;
  *  해당 어노테이션을 연속해서 작성하면 됨
  * 
  * 
+ * 
+ * 
  * @ConfigurationProperties(prefix="spring.datasource.hikari")
  * - @PropertySource 로 읽어온 properties 파일의 내용 중
  *   접두사 (앞부분, prefix)가 일치하는 값만 읽어옴
@@ -51,7 +53,6 @@ import com.zaxxer.hikari.HikariDataSource;
  * */
 
 //classpath == src/main/resources
-
 @Configuration
 @PropertySource("classpath:/config.properties")  
 public class DBConfig {
