@@ -44,11 +44,6 @@ public class MainController {
 		// -> 이쪽으로 forward
 		return "common/main";
 	}
-	
-	@RequestMapping("/test") 
-	public String kakaoApi() {
-		
-		return "common/test";
-	}
+
 	
 }
