@@ -68,7 +68,6 @@ public class DBConfig {
 	
 	// prefix -> 접두사
 	// 접두사가 prefix의 값으로 시작하는 값들을 전부 가져와 사용하겠다.
-	
 	@Bean	// Spring이 관리하게 함
 	@ConfigurationProperties(prefix="spring.datasource.hikari") 
 	public HikariConfig hikariConfig() {
