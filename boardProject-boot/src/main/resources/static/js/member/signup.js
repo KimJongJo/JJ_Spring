@@ -438,7 +438,7 @@ memberNickname.addEventListener("input", e => {
     fetch("/member/checkNickname?memberNickname=" + inputNickname)
     .then(resp => resp.text())
     .then(result => {
-        if(result == 0){ // 중복 O
+        if(result == 0){ // 중복 x
             nickMessage.innerText = "사용 가능한 닉네임 입니다."
             nickMessage.classList.add("confirm");
             nickMessage.classList.remove("error");
