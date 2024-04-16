@@ -1,5 +1,9 @@
 package edu.kh.project.member.model.service;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -119,8 +123,84 @@ public class MemberServiceImpl implements MemberService{
 		return mapper.signup(inputMember);
 	}
 
+	// 전체 회원 빠른 로그인 만들기
+	@Override
+	public List<String> selectAll() {
+		
+		return mapper.selectAll();
+	}
+
+	// 이메일로 빠른 로그인
+	@Override
+	public Member selectOne(String memberEmail) {
+		
+		
+		Member loginMember = mapper.login(memberEmail);
+		
+		log.debug("serviceimple loginMember : " + loginMember);
+		
+		
+		return loginMember;
+	}
+
+	// 빠른 로그인
+	// -> 일반 로그인에서 비밀번호 비교만 제외
+	@Override
+	public Member quickLogin(String memberEmail) {
+		Member loginMember = mapper.login(memberEmail);
+		
+		// 탈퇴 or 없는 회원
+		if(loginMember == null) return null;
+		
+		// 조회된 비밀번호 null 로 변경
+		loginMember.setMemberPw(null);
+		return loginMember;
+	}
+
+	// 전체 멤버 조회
+	@Override
+	public List<Member> memberList() {
+		
+		List<Member> memberList = mapper.memberList();
+		
+		return memberList;
+	}
+
+	// 비밀번호 버튼 변경
+	@Override
+	public int resetPassword(int memberNo) {
+		
+		String encPw = bcrypt.encode("pass01!");
+		
+		Member member = new Member();
+		member.setMemberPw(encPw);
+		member.setMemberNo(memberNo);
+		
+		return mapper.resetPassword(member);
+	}
+
+	// 회원 탈퇴 복구
+	@Override
+	public int restoration(int memberNo) {
+		
+		return mapper.restoration(memberNo);
+	}
+
+	// 비밀번호 초기화
+	@Override
+	public int resetPw(int inputNo) {
+		
+		String encPw = bcrypt.encode("pass01");
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("inputNo", inputNo);
+		map.put("encPw", encPw);
+		
+		return mapper.resetPw(map);
+	}
+
 	
-}
+} 
 
 
 /* BCrypt 암호화 (Spring Security 제공)

@@ -1,9 +1,12 @@
 package edu.kh.project.member.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -226,6 +229,88 @@ public class MemberController {
 	
 	
 	
+	@GetMapping("quickLogin")
+	public String fastLogin(@RequestParam("memberEmail") String loginEmail,
+					Model model,
+					RedirectAttributes ra
+					) {
+		
+		
+		Member loginMember = service.selectOne(loginEmail);
 	
+		if(loginMember == null) {
+			ra.addFlashAttribute("message", "이메일이 존재하지 않습니다.");
+		}else {
+			model.addAttribute("loginMember", loginMember);
+		}
+
+		
+		return "redirect:/"; // 메인페이지 재요청
+	}
+	
+	
+//	
+//	@GetMapping("quickLogin")
+//	public String quickLogin(
+//			@RequestParam("memberEmail") String memberEmail,
+//			Model model,
+//			RedirectAttributes ra
+//			) {
+//		
+//		Member loginMember = service.quickLogin(memberEmail);
+//		
+//		if(loginMember == null) {
+//			ra.addFlashAttribute("message", "해당 이메일이 존재하지 않습니다.");
+//		}else {
+//			model.addAttribute("loginMember", loginMember);
+//		}
+//		
+//		
+//		return "redirect:/";
+//	}
+	
+	
+	
+	@ResponseBody
+	@GetMapping("selectAll")
+	public List<Member> selectAll() {
+		
+		List<Member> memberList = service.memberList();
+//		
+//		log.debug(memberList.toString());
+//		log.debug(memberList.get(0).toString());
+//		log.debug(memberList.get(1).toString());
+//		
+		return memberList;
+	}
+	
+	
+	
+	@ResponseBody
+	@GetMapping("resetPassword")
+	public int resetPassword(@RequestParam("resetMemberNo") int memberNo) {
+		
+		return service.resetPassword(memberNo);
+	};
+	
+	
+	/////비밀번호 초기화 
+	@ResponseBody
+	@PutMapping("resetPw")
+	public int resetPw(@RequestBody int inputNo) {
+		
+		return service.resetPw(inputNo);
+		
+	}
+	
+	
+	
+	
+	@ResponseBody
+	@GetMapping("restorationBtn")
+	public int restoration(@RequestParam("restorationMemberNo")int memberNo) {
+		
+		return service.restoration(memberNo);
+	};
 	
 }
