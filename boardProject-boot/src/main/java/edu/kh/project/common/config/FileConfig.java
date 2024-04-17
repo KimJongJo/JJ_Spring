@@ -39,6 +39,18 @@ public class FileConfig implements WebMvcConfigurer{
 	@Value("${spring.servlet.multipart.location}")
 	private String location;
 	
+	
+	
+	//////////////////////////////////////////////////////
+	// 프로필 이미지
+	@Value("${my.profile.resource-handler}")
+	private String profileResourceHandler;
+	
+	@Value("${my.profile.resource-location}")
+	private String profileResourceLocation;
+	
+
+	
 	 
 	
 	// 요청 주소에 따라
@@ -50,6 +62,17 @@ public class FileConfig implements WebMvcConfigurer{
 		.addResourceLocations("file:///C:/uploadFiles/test/");
 		// 클라이언트가 /myPage/file/** 패턴으로 이미지를 요청할 때
 		// 요청을 연결해서 처리해줄 서버 폴더 경로 연결
+		
+		// 프로필 이미지 요청 - 서버 폴더 연결 추가
+		registry.addResourceHandler(profileResourceHandler)// /myPage/profile/**
+		.addResourceLocations(profileResourceLocation); // file:///c:/uploadFiles/profile/
+		
+		
+		// file:///C: 는 파일 시스템의 루트 디렉토리
+		
+		// file:// 은 URL 스킴(Scheme), 파일 시스템의 리소스
+		// /C: 는 Windows 시스템에서 C드라이브를 가리킴.
+		// file:///C: 는 "C 드라이브의 루트 디렉토리"를 의미함.
 	
 	}
 	
@@ -66,6 +89,7 @@ public class FileConfig implements WebMvcConfigurer{
 		
 		// Multipart에 관한 구성설정을 해주는 공장
 		MultipartConfigFactory factory = new MultipartConfigFactory();
+		
 		
 		//DataSize.ofBytes를 통해서 타입을 byte 모양으로 바꿔줘야한다.
 		factory.setFileSizeThreshold(DataSize.ofBytes(fileSizeThreshold));
