@@ -59,3 +59,25 @@ document.querySelector("#boardLike").addEventListener("click", e => {
 
     });
 });
+
+
+//////////////////// 게시글 수정 버튼 ////////////////////
+
+const updateBtn = document.querySelector("#updateBtn");
+
+if(updateBtn != null) { // 수정 버튼 존재 시
+
+    updateBtn.addEventListener("click", () => {
+
+        // GET 방식
+        // 현재 : /board/1/2001?cp=1
+        // 목표 : /editBoard/1/2001/update
+
+                        // 경로의 board를 editBoard로 바꿈 
+        location.href = location.pathname.replace('board', 'editBoard')
+                        + "/update"
+                        + location.search;
+                        // 쿼리 스트링 부분을 찾아서 뒤에 붙여줌( ? 부터 시작 ) (?cp=1)
+    });
+
+}
