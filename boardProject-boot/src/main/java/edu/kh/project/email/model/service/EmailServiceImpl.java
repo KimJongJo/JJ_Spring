@@ -14,10 +14,12 @@ import org.thymeleaf.spring6.SpringTemplateEngine;
 import edu.kh.project.email.model.mapper.EmailMapper;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Transactional // 예외 발생시 롤백(기본값 커밋)
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class EmailServiceImpl implements EmailService{
 	
 	// EmailConfig 설정이 적용된 객체(메일 보내기 기능)

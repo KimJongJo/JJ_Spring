@@ -203,37 +203,6 @@ public class MemberServiceImpl implements MemberService{
 } 
 
 
-/* BCrypt 암호화 (Spring Security 제공)
- * 
- * - 입력된 문자열(비밀번호)에 salt를 추가한 후 암호화
- * 
- * ex) A 회원 : 1234 -> $12!apies
- * ex) B 회원 : 1234 -> $12!sonfh
- * 
- * - 비밀번호 확인 방법
- * -> BCryptPasswordEncoder.matches(평문 비밀번호, 암호화된 비밀번호)
- * 	-> 평문 비밀번호와 암호화된 비밀번호가 같은 경우 true 아니면 false 반환
- * 
- * * 로그인 / 비밀번호 변경 / 탈퇴 등 비밀번호가 입력되는 경우
- * 	 DB에 저장된 암호화된 비밀번호를 조회해서
- *   matches() 메서드로 비교해야 한다!
- * 
- * 
- * 
- * 
- * sha 방식 암호화
- * ex) A 회원 : 1234 -> 암호화 : abcd
- * ex) B 회원 : 1234 -> 암호화 : abcd (암호화 시 변경된 내용이 같음)
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * */
-
-
 
 
 
