@@ -37,6 +37,7 @@ public class MainController {
 		
 		model.addAttribute("memberList", memberList);
 
+		
 		// 접두사/접미사 제외
 		return "common/main";
 	}
